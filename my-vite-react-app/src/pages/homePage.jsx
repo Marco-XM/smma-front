@@ -11,7 +11,7 @@ const HomePage = () => {
           const sections = document.querySelectorAll('.parallax');
           sections.forEach(section => {
             const scrollPosition = window.pageYOffset;
-            section.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            section.style.backgroundPositionY = `${scrollPosition * 0.25}px`;
           });
         };
     
@@ -29,7 +29,7 @@ const HomePage = () => {
                     <div className='relative w-full'>
                         <div className='absolute p-5 px-20 rounded-br-full text-white'>
                             <div className='relative bg-white rounded text-black p-4'>
-                                <h3 className='absolute right-0 bottom-0 mr-1 text-xs font-semibold'>BR</h3>
+                                <h3 className='absolute right-0 bottom-0 mr-1 text-xs font-semibold'>BR.</h3>
                             </div>
                         </div>
                         <div className='absolute left-1/2 transform -translate-x-1/2 top-0 text-white p-5 px-20 rounded-bl-full rounded-br-full'>
