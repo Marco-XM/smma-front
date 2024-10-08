@@ -37,5 +37,23 @@
   background-position: center;
 }
 
+@keyframes slideInFromTop {
+  0% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(28);
+    opacity: 1;
+  }
+}
+
+.welcome-container {
+  animation: slideInFromTop 3s ease-in-out;
+}
+
+.shadow-image {
+  box-shadow: 0px 20px 10px rgb(0, 0, 0);
+}
 
 
