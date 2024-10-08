@@ -58,10 +58,10 @@ const HomePage = () => {
               <div className='absolute right-0 p-5 px-16 text-white rounded-bl-full'>Sign Up</div>
             </div>
           </div>
-          <div className='self-center w-full flex justify-center translate-x-48 welcome-container'>
+          <div className='self-center w-full flex justify-center '>
             <div className='text-white flex flex-col'>
-              <h1 className='text-9xl'>Welcome.</h1>
-              <h3 className='text-3xl self-center typing-effect w-fit' style={{ zIndex: 2 }}>Grow Your Business Quickly</h3>
+              <h1 className='text-[12rem] -translate-y-36 bordered-text welcome-container'>Welcome</h1>
+              <h3 className='text-3xl self-center typing-effect translate-x-48 -translate-y-32 font-bold' style={{ zIndex: 2 }}>Grow Your Business Quickly</h3>
             </div>
           </div>
         </div>

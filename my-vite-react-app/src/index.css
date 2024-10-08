@@ -18,7 +18,7 @@
 }
 @keyframes typing {
   from { width: 0; }
-  to { width: 70%; }
+  to { width: 50%; }
 }
 
 @keyframes blink-caret {
@@ -54,6 +54,26 @@
 
 .shadow-image {
   box-shadow: 0px 20px 10px rgb(0, 0, 0);
+}
+
+.bordered-text {
+  position: relative;
+  color: transparent; /* Make the text itself transparent */
+  -webkit-text-stroke: 1px rgb(255, 255, 255); /* Outline the text for WebKit browsers */
+  font-weight: bold;
+}
+
+.bordered-text::before {
+  content: 'Welcome';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255, 255, 255); /* Outline the text for WebKit browsers */
+  clip-path: text; /* Clips the blurred element to the shape of the text */
+  z-index: 2; /* Make sure it is behind the text */
 }
 
 
