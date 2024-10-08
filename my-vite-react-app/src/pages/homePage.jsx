@@ -45,7 +45,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className='self-center m-10'>
-            <div className='text-white flex flex-col'>
+            <div className='text-white flex flex-col ml-40'>
               <h1 className='text-9xl'>Welcome.</h1>
               <h3 className='text-3xl self-center typing-effect w-fit'>Grow Your Business Quickly</h3>
             </div>
