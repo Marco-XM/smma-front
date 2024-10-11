@@ -75,7 +75,7 @@ const HomePage = () => {
                 </div> */}
               </div>
             </div>
-            <h1 className='self-center text-[2.5rem] font-bold text-white'>RC</h1>
+            <h1 className='self-center text-[2rem] font-semibold text-white'>RC</h1>
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 text-white p-5 px-20 rounded-bl-full rounded-br-full hidden md:block">
               <NavBar />
             </div>
