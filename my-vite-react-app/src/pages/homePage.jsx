@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../assets/northcost-3.jpg';
 import imagetop from '../assets/northcost-33.png';
 import image4 from '../assets/Untitled-6.jpg';
 import image5 from '../assets/Untitled-98.jpg';
 import NavBar from '../components/NavBar';
+import CurvedTriangleLogo from '../components/Logo';
 
 const HomePage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const setInitialPosition = () => {
       const overlays = document.querySelectorAll('.overlay');
@@ -47,7 +51,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="grid grid-rows-3">
+    <div className="grid">
         <div
           className="section h-screen bg-cover bg-center flex background relative overflow-hidden"
           style={{
@@ -62,17 +66,19 @@ const HomePage = () => {
             zIndex: 4,
           }}
         ></div>
-        <div className="fixed w-full flex justify-between" style={{ zIndex: 5 }}>
-          <div className="relative w-full">
-            <div className="absolute p-5 px-20 rounded-br-full text-white">
-              <div className="relative bg-white rounded text-black p-4">
-                <h3 className="absolute right-0 bottom-0 mr-1 text-xs font-semibold">BR</h3>
+        <div className={`fixed w-full flex justify-between ${scrolled ? 'bg-white h-20' : ''}`} style={{ zIndex: 5 }}>
+          <div className="relative w-full flex">
+            <div className="flex pt-3 pl-3 pb-3 text-white">
+              <div className='triangleOut relative flex w-full h-full'>
+                <div className='triangleIn flex absolute translate-x-[2.5px] translate-y-[3px] self-center'>
+                </div>
               </div>
             </div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 text-white p-5 px-20 rounded-bl-full rounded-br-full">
+            <h1 className='self-center text-[2.5rem] font-bold text-white'>RC</h1>
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 text-white p-5 px-20 rounded-bl-full rounded-br-full hidden md:block">
               <NavBar />
             </div>
-            <div className="absolute right-0 p-5 px-16 text-white rounded-bl-full">Sign Up</div>
+            <div className="absolute right-0 p-5 px-16 text-white rounded-bl-full hidden md:block">Sign Up</div>
           </div>
         </div>
         <div className="self-center w-full" style={{ zIndex: 3 }}>
@@ -88,18 +94,73 @@ const HomePage = () => {
       </div>
 
         <div
-          className='section h-screen bg-cover bg-center flex background'
+          className='section relative h-screen bg-cover bg-center flex background'
           style={{ backgroundImage: `url(${image5})` }}
         >
           {/* Content for the second section */}
+          <div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
 
         <div
-          className='section h-screen bg-cover bg-center flex background'
-          style={{ backgroundImage: `url(${image4})` }}
+          className='section p-20 h-fit bg-cover bg-center background'
+          style={{ backgroundColor: `black` }}
         >
           {/* Content for the third section */}
+          <div className='flex flex-col justify-center'>
+            <div className='flex justify-center'>
+              <div className="relative m-20 bg-white rounded-xl text-black p-10 self-center">
+                <span className='absolute top-0 right-0 w-2 h-2 bg-black rounded-full m-2'></span>
+                <h3 className="absolute right-0 bottom-0 mb-1 mr-2 text-xl font-bold">Arc</h3>
+              </div>
+              <div className='self-center m-20'>
+                <h1 className="text-4xl text-white text-center">About Us</h1>
+                <p className="text-white text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget libero nec n</p>
+              </div>
+            </div>
+            <div className="flex space-x-10 self-center mb-4">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-facebook-f text-white text-3xl hover:text-blue-400 transform transition-all"></i>
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="relative inline-block">
+                <i className="fab fa-instagram text-white text-3xl relative z-10 icon-gradient"></i>
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin-in text-white text-3xl hover:text-blue-500 transform transition-all"></i>
+              </a>
+            </div>
+          </div>
         </div>
+      {/* Burger Menu */}
+      <div className="fixed top-0 right-0 p-5 z-50 md:hidden">
+        <button
+          className="text-white focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+            ></path>
+          </svg>
+        </button>
+        {menuOpen && (
+          <div className="absolute flex flex-col gap-10 top-0 right-0 text-white mt-12 mr-5 rounded-lg shadow-lg p-5 shadow-image">
+            <NavBar />
+            <button className="right-0 px-16 rounded-bl-full whitespace-nowrap">Sign Up</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
