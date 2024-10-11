@@ -67,11 +67,12 @@ const HomePage = () => {
           }}
         ></div>
         <div className={`fixed w-full flex justify-between ${scrolled ? 'bg-white h-20' : ''}`} style={{ zIndex: 5 }}>
-          <div className="relative w-full flex">
-            <div className="flex pt-3 pl-3 pb-3 text-white">
-              <div className='triangleOut relative flex w-full h-full'>
-                <div className='triangleIn flex absolute translate-x-[2.5px] translate-y-[3px] self-center'>
-                </div>
+          <div className="relative w-full m-3 flex">
+            <div className="flex pt-3 pl-3 pb-3 justify-center">
+              <div className='triangleOut relative flex w-full h-full items-center'>
+                <div className='color'></div>
+                {/* <div className='triangleIn flex absolute translate-x-[2.5px] translate-y-[3px] self-center'>
+                </div> */}
               </div>
             </div>
             <h1 className='self-center text-[2.5rem] font-bold text-white'>RC</h1>
@@ -83,10 +84,10 @@ const HomePage = () => {
         </div>
         <div className="self-center w-full" style={{ zIndex: 3 }}>
           <div className="text-white flex flex-col justify-around transform -translate-y-28">
-            <h1 className="text-[12rem] bordered-text welcome-container self-center" style={{ zIndex: 3 }}>
+          <h1 className="text-[5.5rem] sm:text-[9rem] md:[10rem] lg:text-[12rem] bordered-text welcome-container self-center" style={{ zIndex: 3 }}>
               Welcome
             </h1>
-            <h3 className="text-2xl typing-effect font-thin self-center translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
+            <h3 className="translate-x-20 lg:text-2xl typing-effect font-thin self-center lg:translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
               Grow Your Business Quickly
             </h3>
           </div>
@@ -110,10 +111,12 @@ const HomePage = () => {
         >
           {/* Content for the third section */}
           <div className='flex flex-col justify-center'>
-            <div className='flex justify-center'>
-              <div className="relative m-20 bg-white rounded-xl text-black p-10 self-center">
-                <span className='absolute top-0 right-0 w-2 h-2 bg-black rounded-full m-2'></span>
-                <h3 className="absolute right-0 bottom-0 mb-1 mr-2 text-xl font-bold">Arc</h3>
+            <div className='flex justify-around'>
+              <div className='self-center'>
+                <div>
+                  <div className='triangleFooter relative flex w-full h-full'>
+                  </div>
+                </div>
               </div>
               <div className='self-center m-20'>
                 <h1 className="text-4xl text-white text-center">About Us</h1>

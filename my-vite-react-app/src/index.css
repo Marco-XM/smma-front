@@ -132,7 +132,16 @@ html, body {
   -webkit-text-fill-color: transparent;
 }
 
-.triangleIn {
+@keyframes gradient-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.triangleOut {
   --r:4px; /* border radius */
 
   width: 40px;
@@ -146,23 +155,15 @@ html, body {
     radial-gradient(var(--r) at right var(--_g));
   clip-path: polygon(50% 0,100% 100%,0 100%);
   object-fit: cover;
-  background: rgb(255, 255, 255);
+  background: linear-gradient( #ff00ff, #4b9fff, #ff1212);
   display: inline-block;
+  transition: all;
 }
 
-@keyframes gradient-rotation {
-  0% {
-    background: linear-gradient(0deg, #ff00ff, #4b9fff, #ff1212);
-  }
-  100% {
-    background: linear-gradient(36deg, #ff00ff, #4b9fff, #ff1212);
-  }
-}
+.triangleFooter {
+  --r:10px; /* border radius */
 
-.triangleOut {
-  --r:4.5px; /* border radius */
-
-  width: 45px;
+  width: 140px;
   aspect-ratio: 1/cos(30deg);
   --_g:calc(tan(60deg)*var(--r)) bottom var(--r),#000 98%,#0000 101%;
   -webkit-mask:
@@ -173,21 +174,47 @@ html, body {
     radial-gradient(var(--r) at right var(--_g));
   clip-path: polygon(50% 0,100% 100%,0 100%);
   object-fit: cover;
-  background: linear-gradient( #ff00ff, #4b9fff, #ff1212);
+  background: rgb(0, 255, 221);
   display: inline-block;
   transition: all;
-  animation: gradient-rotation 5s linear infinite;
+}
+
+.color {
+  position: absolute;
+  top: -3px;
+  left: -4px;
+  width: 50px;
+  height: 50px;
+  background: conic-gradient(#ff00ff, #00d9ff, #ff1212, #eeff00);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: gradient-rotation 2s linear infinite;
+  z-index: 998; /* Ensure it is behind the white dot */
 }
 
 
-.triangleIn::before {
+.triangleOut::before {
   content: '';
   position: absolute;
   top: 60%;
   left: 50%;
-  width: 8px;
-  height: 8px;
-  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  background-color: white;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.triangleFooter::before {
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 }
