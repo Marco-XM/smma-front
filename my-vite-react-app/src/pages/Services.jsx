@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import Logo from '../components/Logo';
 import image from '../assets/to 1m.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
