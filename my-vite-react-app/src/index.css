@@ -132,6 +132,18 @@ html, body {
   -webkit-text-fill-color: transparent;
 }
 
+.instagram-icon svg .instagram-path {
+  stroke: white;
+}
+
+.instagram-icon:hover svg .instagram-path {
+  stroke: url(#instagramGradient);
+}
+
+.instagram-icon:hover svg .instagram-dot {
+  stroke: rgb(255, 72, 0);
+}
+
 @keyframes gradient-rotation {
   0% {
     transform: rotate(0deg);
@@ -176,7 +188,10 @@ html, body {
   object-fit: cover;
   background: rgb(0, 255, 221);
   display: inline-block;
-  transition: all;
+}
+
+.shadow {
+  box-shadow: 0 0 20px 10px rgb(255, 255, 255); /* Glowing effect */
 }
 
 .color {
@@ -217,4 +232,23 @@ html, body {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
+}
+
+.ServiceButton:hover .hoverEffect {
+  color: rgb(199, 199, 199);
+  transition: all 0.3s ease-in-out;
+}
+
+.descriptionClass {
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  max-height: 0;
+  opacity: 0;
+  z-index: 9999;
+}
+
+.descriptionClass.max-h-40 {
+  max-height: 10rem; /* Adjust as needed */
+  opacity: 1;
 }
