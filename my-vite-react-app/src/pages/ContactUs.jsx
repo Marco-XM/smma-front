@@ -18,7 +18,7 @@ const ContactUs = () => {
     };
 
     return (
-        <div className='flex flex-col min-h-screen bg-cover bg-center bg-black'>
+        <div className='flex flex-col min-h-screen bg-cover bg-center bg-cyan-300'>
             <div className='fixed w-full z-50'>
                 <div className="m-2 flex justify-between items-center">
                     <Logo />
@@ -28,6 +28,7 @@ const ContactUs = () => {
                 </div>
             </div>
 
+            <div className='flex flex-col min-h-screen m-5 lg:m-0'>
             <div className='flex flex-col items-center lg:gap-20 mt-32 lg:mt-40'>
                 <h1 className='text-6xl lg:text-8xl text-white font-semibold mb-16'>Contact Us</h1>
 
@@ -105,6 +106,7 @@ const ContactUs = () => {
                             ></iframe>
                     </div>
             </div>
+        </div>
             <Footer />
         </div>
     );
