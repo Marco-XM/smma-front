@@ -56,6 +56,7 @@ const services = [
     },
 ];
 
+
 const Services = () => {
     const [activeItem, setActiveItem] = useState(null);
 
@@ -63,63 +64,71 @@ const Services = () => {
         setActiveItem(activeItem === index ? null : index);
     };
 
-    const className = 'p-4 bg-green-300 bg-opacity-0 backdrop-blur-xl flex gap-5 flex-col rounded-xl shadow-md flex-1 relative z-0';
-    const innerBoxClass = 'p-5 bg-blue-300 bg-opacity-0 rounded-md flex-1 z-0';
-    const descriptionClass = 'p-2 bg-white text-black font-semibold z-50 backdrop-blur-xl mb-2 w-full rounded-md transition-all duration-500 ease-in-out overflow-hidden';
+    const className = 'p-4 bg-green-300 bg-opacity-0 backdrop-blur-xl flex gap-5 flex-col rounded-xl shadow-md flex-1 relative';
+    const innerBoxClass = 'p-5 bg-blue-300 bg-opacity-0 rounded-md flex-1';
+    const descriptionClass = 'p-2 text-black font-semibold absolute bg-white bg-opacity-100 mb-2 w-full rounded-md transition-all duration-500 ease-in-out backdrop-blur-xl';
 
+    // Function to calculate z-index based on the position of the box in the array
+    const calculateZIndex = (index, total) => {
+        return total - index; // Higher index for earlier boxes
+    };
 
     return (
-<div className='flex flex-col min-h-screen bg-cover bg-center bg-black' style={{ backgroundImage: `url(${image})` }}>
-    {/* Fixed NavBar */}
-    <div className='fixed w-full z-50'>
-        <div className="m-2 flex justify-between items-center">
-            <Logo />
-            <div className="text-white mr-5 rounded-bl-full rounded-br-full">
-                <NavBar />
-            </div>
-        </div>
-    </div>
-
-    {/* Main Section */}
-    <div className='flex flex-col items-center lg:gap-20 mt-32 lg:mt-40'>
-        {/* Title */}
-        <h1 className='text-6xl lg:text-8xl text-white font-semibold mb-16'>Services</h1>
-
-        {/* Service Boxes Container */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 p-5 w-full'>
-            {/* Dynamic Service Boxes */}
-            {services.map((service, serviceIndex) => (
-                <div key={serviceIndex} className='flex flex-col gap-10 text-white'>
-                    <div className={className}>
-                        <FontAwesomeIcon icon={service.icon} className='text-2xl mr-4' />
-                        <h1 className='font-semibold text-xl mb-2 self-center'>{service.title}</h1>
-                        <div className={innerBoxClass}>
-                            {service.items.map((item, itemIndex) => (
-                                <div key={itemIndex} className='relative border-b border-t'>
-                                    <button
-                                        className='w-full bg-gray-800 flex flex-col text-white p-4 text-center rounded-md transform transition-all bg-opacity-0 ServiceButton'
-                                        onClick={() => toggleItem(`${serviceIndex}-${itemIndex}`)}
-                                    >
-                                        <div className='self-center'>
-                                            {item.name}
-                                        </div>
-                                        <FontAwesomeIcon icon={faChevronDown} className={`self-center mt-2 hoverEffect ${activeItem === `${serviceIndex}-${itemIndex}` ? 'rotate-180' : 'rotate-0'}`} />
-                                    </button>
-                                    <div
-                                        className={`${descriptionClass} ${activeItem === `${serviceIndex}-${itemIndex}` ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
-                                    >
-                                        <p>{item.description}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+        <div className='flex flex-col min-h-screen bg-cover bg-center bg-black' style={{ backgroundImage: `url(${image})` }}>
+            {/* Fixed NavBar */}
+            <div className='fixed w-full z-50'>
+                <div className="m-2 flex justify-between items-center">
+                    <Logo />
+                    <div className="text-white mr-5 rounded-bl-full rounded-br-full">
+                        <NavBar />
                     </div>
                 </div>
-            ))}
+            </div>
+
+            {/* Main Section */}
+            <div className='flex flex-col items-center lg:gap-20 mt-32 lg:mt-40'>
+            {/* Title */}
+            <h1 className='text-6xl lg:text-8xl text-white font-semibold mb-16'>Services</h1>
+
+            {/* Service Boxes Container */}
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 p-5 w-full'>
+                {/* Dynamic Service Boxes */}
+                {services.map((service, serviceIndex) => (
+                    <div key={serviceIndex} className='flex flex-col gap-10 text-white relative'>
+                        <div
+                            className={className}
+                            style={{ zIndex: calculateZIndex(serviceIndex, services.length) }} 
+                        >
+                            <FontAwesomeIcon icon={service.icon} className='text-2xl' />
+                            <h1 className='font-semibold text-xl mb-2 self-center'>{service.title}</h1>
+                            <div className={innerBoxClass}>
+                                {service.items.map((item, itemIndex) => (
+                                    <div key={itemIndex} className='relative border-b border-t'>
+                                        <button
+                                            className='w-full bg-gray-800 flex flex-col text-white p-4 text-center rounded-md transform transition-all bg-opacity-0 ServiceButton'
+                                            onClick={() => toggleItem(`${serviceIndex}-${itemIndex}`)}
+                                        >
+                                            <div className='self-center'>
+                                                {item.name}
+                                            </div>
+                                            <FontAwesomeIcon icon={faChevronDown} className={`self-center mt-2 hoverEffect ${activeItem === `${serviceIndex}-${itemIndex}` ? 'rotate-180' : 'rotate-0'}`} />
+                                        </button>
+                                        <div
+                                            className={`${descriptionClass} ${activeItem === `${serviceIndex}-${itemIndex}` ? 'max-h-40 opacity-100 z-50' : 'max-h-0 opacity-0'}`}
+                                            style={{ position: 'absolute', top: '100%', left: 0, right: 0 }}
+                                        >
+                                            <p>{item.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
+        <Footer />
     </div>
-    <Footer />
-</div>
 );
 };
 

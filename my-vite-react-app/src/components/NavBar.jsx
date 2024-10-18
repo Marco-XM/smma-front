@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import packages from '../data/packagesData';
 
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
-    }
+    };
+
+    const handleContactUsClick = () => {
+        navigate('/contact-us', { state: { packages } });
+    };
 
     return (
         <div className="w-full z-50">
@@ -16,7 +20,7 @@ const NavBar = () => {
                 <div className="hidden md:flex flex-1 justify-end items-center space-x-10 text-nowrap">
                     <Link to="/services" className="text-white hover:text-gray-200 transition-all">Services</Link>
                     <Link to="/packages" className="text-white hover:text-gray-200 transition-all">Packages</Link>
-                    <Link to="/contact" className="text-white hover:text-gray-200 transition-all">Contact Us</Link>
+                    <button onClick={handleContactUsClick} className="text-white hover:text-gray-200 transition-all">Contact Us</button>
                     <Link to="/about" className="text-white hover:text-gray-200 transform transition-all">About Us</Link>
                 </div>
                 <div className="fixed top-0 right-0 m-8 z-50 md:hidden">
@@ -29,10 +33,10 @@ const NavBar = () => {
             </div>
             {isMenuOpen && (
                 <div className="absolute flex flex-col gap-10 top-0 right-0 text-white mt-12 mr-11 rounded-lg shadow-lg p-5 shadow-image text-nowrap">
-                    <button onClick={toggleMenu}>Services</button>
-                    <button onClick={toggleMenu}>Packages</button>
-                    <button onClick={toggleMenu}>Contact Us</button>
-                    <button onClick={handleNavigateToAbout}>About Us</button>
+                    <Link to="/services" className="text-white hover:text-gray-200 transition-all">Services</Link>
+                    <Link to="/packages" className="text-white hover:text-gray-200 transition-all">Packages</Link>
+                    <button onClick={handleContactUsClick} className="text-white hover:text-gray-200 transition-all">Contact Us</button>
+                    <Link to="/about" className="text-white hover:text-gray-200 transform transition-all">About Us</Link>
                 </div>
             )}
         </div>

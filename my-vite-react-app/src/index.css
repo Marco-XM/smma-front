@@ -252,3 +252,25 @@ html, body {
   max-height: 10rem; /* Adjust as needed */
   opacity: 1;
 }
+
+.popup {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  right: 0;
+  background-color: white;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.popup.visible {
+  max-height: 40rem; /* Adjust based on your content */
+  opacity: 1;
+  z-index: 999; /* Ensure it appears above other content */
+}
+
+.zindex {
+  z-index: 0;
+}

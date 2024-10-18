@@ -62,7 +62,7 @@ const Footer = () => {
 
             {/* Copyright section */}
             <div className="mt-10 text-center text-xs sm:text-sm md:text-base">
-                © {new Date().getFullYear()} Arc Point. All rights reserved.
+                © {new Date().getFullYear()} Arc Point Marekting. All rights reserved.
             </div>
         </footer>
     );
