@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import Image from '../assets/Untitled-2.jpg';
 import packages from '../data/packagesData';
 
