@@ -6,9 +6,13 @@ import image5 from '../assets/Untitled-98.jpg';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 import Logo from '../components/Logo';
+import Loading from '../components/Loading';
+
 
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [loading, setLoading] = useState(true);
+
 
 
   useEffect(() => {
@@ -57,6 +61,25 @@ const HomePage = () => {
     };
     
   }, []);
+
+  useEffect(() => {
+    const backgroundImg = new Image();
+    const overlayImg = new Image();
+
+    backgroundImg.src = image;
+    overlayImg.src = imagetop;
+
+    const handleImageLoad = () => {
+      setLoading(false);
+    };
+
+    backgroundImg.onload = handleImageLoad;
+    overlayImg.onload = handleImageLoad;
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="grid">

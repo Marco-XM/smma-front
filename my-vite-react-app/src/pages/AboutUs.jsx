@@ -5,12 +5,16 @@ import Footer from '../components/footer';
 import Logo from '../components/Logo';
 import Touch10Icon from '../components/touch-10-stroke-rounded'; // Import the Touch10Icon component
 import MouseLeftClick04Icon from '../components/mouse-left-click-04-stroke-rounded'; // Import the MouseLeftClick04Icon component
+import Loading from '../components/Loading';
+
 
 const AboutUs = () => {
   const [isVisible1, setIsVisible1] = useState(true);
   const [isVisible2, setIsVisible2] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loading, setLoading] = useState(true);
+
 
 
   const toggleVisibility1 = () => {
@@ -48,6 +52,24 @@ const AboutUs = () => {
         window.removeEventListener('scroll', handleScroll);
     };
 }, []);
+
+useEffect(() => {
+  const backgroundImg = new Image();
+  const overlayImg = new Image();
+
+  backgroundImg.src = image;
+
+  const handleImageLoad = () => {
+    setLoading(false);
+  };
+
+  backgroundImg.onload = handleImageLoad;
+  overlayImg.onload = handleImageLoad;
+}, []);
+
+if (loading) {
+  return <Loading />;
+}
 
   return (
     <div className='flex flex-col min-h-screen lg:gap-20 bg-cover' style={{ backgroundImage: `url(${image})` }}>

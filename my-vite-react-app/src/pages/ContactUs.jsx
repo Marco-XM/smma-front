@@ -6,7 +6,9 @@ import Select from 'react-select';
 import Footer from '../components/footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import Image from '../assets/smma.jpg';
+import image from '../assets/smma.jpg';
+import Loading from '../components/Loading';
+
 
 
 const ContactUs = () => {
@@ -14,6 +16,8 @@ const ContactUs = () => {
     const { selectedPlan, packages } = location.state || {};
     const [selectedPlanState, setSelectedPlanState] = useState(selectedPlan);
     const [scrolled, setScrolled] = useState(false);
+    const [loading, setLoading] = useState(true);
+
 
     const handlePlanChange = (selectedOption) => {
         const newSelectedPlan = packages.find(pkg => pkg.title === selectedOption.value);
@@ -42,8 +46,26 @@ const ContactUs = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const backgroundImg = new Image();
+        const overlayImg = new Image();
+    
+        backgroundImg.src = image;
+    
+        const handleImageLoad = () => {
+          setLoading(false);
+        };
+    
+        backgroundImg.onload = handleImageLoad;
+        overlayImg.onload = handleImageLoad;
+      }, []);
+    
+      if (loading) {
+        return <Loading />;
+      }
+
     return (
-        <div className='flex flex-col gap-40 min-h-screen bg-cover bg-center bg-cyan-300' style={{ backgroundImage: `url(${Image})` }}>
+        <div className='flex flex-col gap-40 min-h-screen bg-cover bg-center bg-cyan-300' style={{ backgroundImage: `url(${image})` }}>
             <div className={`fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
                 <div className="m-2 flex justify-between items-center">
                     <Logo />

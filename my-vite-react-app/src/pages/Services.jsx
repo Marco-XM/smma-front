@@ -5,6 +5,8 @@ import Logo from '../components/Logo';
 import image from '../assets/to 1m.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBullhorn, faCamera, faPalette, faGlobe, faAd, faUsers, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import Loading from '../components/Loading';
+
 
 // Data array for services
 const services = [
@@ -60,6 +62,8 @@ const services = [
 const Services = () => {
     const [activeItem, setActiveItem] = useState(null);
     const [scrolled, setScrolled] = useState(false);
+    const [loading, setLoading] = useState(true);
+
 
 
     const toggleItem = (index) => {
@@ -91,6 +95,23 @@ const Services = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+    useEffect(() => {
+        const backgroundImg = new Image();
+        const overlayImg = new Image();
+    
+        backgroundImg.src = image;
+    
+        const handleImageLoad = () => {
+          setLoading(false);
+        };
+    
+        backgroundImg.onload = handleImageLoad;
+        overlayImg.onload = handleImageLoad;
+      }, []);
+    
+      if (loading) {
+        return <Loading />;
+      }
 
     return (
         <div className={`flex flex-col min-h-screen bg-cover bg-center bg-black`} style={{ backgroundImage: `url(${image})` }}>

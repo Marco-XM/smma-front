@@ -274,3 +274,118 @@ html, body {
 .zindex {
   z-index: 0;
 }
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+
+.loading-ring0 {
+  position: relative;
+  border-radius: 50%;
+  background-color: magenta;
+  animation: rotate 2s linear infinite;
+}
+.loading-ring {
+  position: absolute;
+  border-radius: 50%;
+  background-color: magenta;
+  animation: rotate 2s linear infinite;
+}
+.loading-ring1 {
+  position: absolute;
+  border-radius: 50%;
+  background-color: blue;
+  animation: rotate1 2s linear infinite;
+}
+.loading-ring2 {
+  position: absolute;
+  border-radius: 50%;
+  background-color: cyan;
+  animation: rotate2 2s linear infinite;
+}
+
+
+
+
+.circle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background-color: #000;
+  border-radius: 50%;
+  color: white;
+  z-index: -1;
+}
+
+.loading-ring span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2em;
+  z-index: 999;
+  animation: none; /* Ensure the text does not animate */
+}
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+    width: 150px;
+    height: 180px;
+  }
+  50% {
+    transform: rotate(180deg);
+    width: 180px;
+    height: 150px;
+  }
+  100% {
+    transform: rotate(0deg);
+    width: 150px;
+    height: 180px;
+  }
+}
+@keyframes rotate1 {
+  0% {
+    transform: rotate(360deg);
+    width: 150px;
+    height: 180px;
+  }
+  50% {
+    transform: rotate(180deg);
+    width: 150px;
+    height: 180px;
+  }
+  100% {
+    transform: rotate(0deg);
+    width: 150px;
+    height: 180px;
+  }
+}
+@keyframes rotate2 {
+  0% {
+    transform: rotate(0deg);
+    width: 180px;
+    height: 150px;
+  }
+  50% {
+    transform: rotate(180deg);
+    width: 150px;
+    height: 180px;
+  }
+  100% {
+    transform: rotate(360deg);
+    width: 180px;
+    height: 150px;
+  }
+}
+

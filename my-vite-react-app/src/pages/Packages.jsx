@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
-import Image from '../assets/laser.jpg';
+import image from '../assets/laser.jpg';
 import packages from '../data/packagesData';
+import Loading from '../components/Loading';
+
 
 const Packages = () => {
     const [scrolled, setScrolled] = useState(false);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+
 
     const handleChoosePlan = (plan) => {
         navigate('/contact-us', { state: { selectedPlan: plan, packages } });
@@ -31,9 +35,27 @@ const Packages = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const backgroundImg = new Image();
+        const overlayImg = new Image();
+    
+        backgroundImg.src = image;
+    
+        const handleImageLoad = () => {
+          setLoading(false);
+        };
+    
+        backgroundImg.onload = handleImageLoad;
+        overlayImg.onload = handleImageLoad;
+      }, []);
+    
+      if (loading) {
+        return <Loading />;
+      }
+
     return (
         <div>
-            <div className='flex flex-col min-h-screen bg-cover bg-center bg-black' style={{ backgroundImage: `url(${Image})` }}>
+            <div className='flex flex-col min-h-screen bg-cover bg-center bg-black' style={{ backgroundImage: `url(${image})` }}>
                 <div className={`fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
                     <div className="m-2 flex justify-between items-center">
                         <Logo />
