@@ -283,27 +283,27 @@ html, body {
 }
 
 .loading-ring0 {
-  position: relative;
+  position: absolute;
   border-radius: 50%;
-  background-color: magenta;
+  background-color: rgb(146, 0, 146);
   animation: rotate 2s linear infinite;
 }
 .loading-ring {
   position: absolute;
   border-radius: 50%;
-  background-color: magenta;
+  background-color: rgb(150, 0, 150);
   animation: rotate 2s linear infinite;
 }
 .loading-ring1 {
   position: absolute;
   border-radius: 50%;
-  background-color: blue;
+  background-color: rgb(255, 134, 255);
   animation: rotate1 2s linear infinite;
 }
 .loading-ring2 {
   position: absolute;
   border-radius: 50%;
-  background-color: cyan;
+  background-color: magenta;
   animation: rotate2 2s linear infinite;
 }
 

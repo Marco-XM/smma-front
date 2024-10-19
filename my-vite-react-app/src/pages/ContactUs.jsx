@@ -60,7 +60,7 @@ const ContactUs = () => {
         overlayImg.onload = handleImageLoad;
       }, []);
     
-      if (loading) {
+      if (!loading) {
         return <Loading />;
       }
 
