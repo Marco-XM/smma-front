@@ -1,5 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import packages from '../data/packagesData';
+
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -8,9 +10,13 @@ const Footer = () => {
         navigate('/about');
     }
 
+    const handleContactUsClick = () => {
+        navigate('/contact-us', { state: { packages } });
+    };
+
     return (
         <footer className="bg-black text-white py-10">
-            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div className="container mx-auto flex flex-col md:gap-10 lg:flex-row text-nowrap justify-between items-center">
                 {/* Top left section for Arc Point Marketing */}
                 <div className="flex flex-col gap-5 mb-10 md:mb-0 md:w-1/3">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl self-center">Arc Point Marketing</h1>
@@ -20,13 +26,13 @@ const Footer = () => {
                 {/* Centered buttons section */}
                 <div className="flex flex-col items-center mb-10 md:mb-0 md:w-1/3">
                     <div className="flex space-x-2 sm:space-x-3 md:space-x-5 text-center">
-                        <button className='text-xs sm:text-sm md:text-base hover:text-gray-300 transform transition-all'>Services</button>
+                        <Link to="/services" className="text-white hover:text-gray-200 transition-all">Services</Link>
                         <span>|</span>
-                        <button className='text-xs sm:text-sm md:text-base hover:text-gray-300 transform transition-all'>Packages</button>
+                        <Link to="/packages" className="text-white hover:text-gray-200 transition-all">Packages & Pricing</Link>
                         <span>|</span>
-                        <button className='text-xs sm:text-sm md:text-base hover:text-gray-300 transform transition-all'>Contact Us</button>
+                        <button onClick={handleContactUsClick} className="text-white hover:text-gray-200 transition-all">Contact Us</button>
                         <span>|</span>
-                        <button className='text-xs sm:text-sm md:text-base hover:text-gray-300 transform transition-all' onClick={handleNavigateToAbout}>About Us</button>
+                        <Link to="/about" className="text-white hover:text-gray-200 transform transition-all">About Us</Link>
                     </div>
                 </div>
 

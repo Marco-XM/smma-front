@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 import Logo from '../components/Logo';
@@ -59,6 +59,8 @@ const services = [
 
 const Services = () => {
     const [activeItem, setActiveItem] = useState(null);
+    const [scrolled, setScrolled] = useState(false);
+
 
     const toggleItem = (index) => {
         setActiveItem(activeItem === index ? null : index);
@@ -73,10 +75,27 @@ const Services = () => {
         return total - index; // Higher index for earlier boxes
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <div className='flex flex-col min-h-screen bg-cover bg-center bg-black' style={{ backgroundImage: `url(${image})` }}>
+        <div className={`flex flex-col min-h-screen bg-cover bg-center bg-black`} style={{ backgroundImage: `url(${image})` }}>
             {/* Fixed NavBar */}
-            <div className='fixed w-full z-50'>
+            <div className={`fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
                 <div className="m-2 flex justify-between items-center">
                     <Logo />
                     <div className="text-white mr-5 rounded-bl-full rounded-br-full">

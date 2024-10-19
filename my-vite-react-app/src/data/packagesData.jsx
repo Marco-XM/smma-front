@@ -4,8 +4,8 @@ const packages = [
         subtitle: 'Perfect for small businesses',
         features: ['Feature 1', 'Feature 2', 'Feature 3'],
         buttonText: 'Choose Basic',
-        color: 'bg-blue-400',
-        buttonColor: 'bg-gradient-to-r from-red-500 via-orange-500 via-yellow-500 via-green-500 via-blue-500 via-indigo-500 via-purple-500 to-pink-500',
+        color: 'bg-red-600',
+        buttonColor: 'bg-gradient-to-r from-blue-500 via-black to-green-500',
         price: '$99/month',
     },
     {
@@ -14,7 +14,7 @@ const packages = [
         features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
         buttonText: 'Choose Standard',
         color: 'bg-green-400',
-        buttonColor: 'bg-gradient-to-r from-red-500 via-orange-500 via-yellow-500 via-green-500 via-blue-500 via-indigo-500 via-purple-500 to-pink-500',
+        buttonColor: 'bg-gradient-to-r from-green-500 via-black  to-purple-500',
         price: '$199/month',
     },
     {
@@ -23,7 +23,7 @@ const packages = [
         features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4', 'Feature 5'],
         buttonText: 'Choose Premium',
         color: 'bg-purple-400',
-        buttonColor: 'bg-gradient-to-r from-red-500 via-orange-500 via-yellow-500 via-green-500 via-blue-500 via-indigo-500 via-purple-500 to-pink-500',
+        buttonColor: 'bg-gradient-to-r from-purple-500 via-black to-blue-500',
         price: '$299/month',
     },
 ];

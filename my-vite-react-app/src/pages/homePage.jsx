@@ -8,13 +8,8 @@ import Footer from '../components/footer';
 import Logo from '../components/Logo';
 
 const HomePage = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const navigate = useNavigate();
 
-  const handleNavigateToHome = () => {
-    navigate('/');
-  };
 
   useEffect(() => {
     const setInitialPosition = () => {
@@ -100,7 +95,7 @@ const HomePage = () => {
               Welcome
             </h1>
             <h3 className="translate-x-20 lg:text-2xl typing-effect font-thin self-center lg:translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
-              Grow Your Business Quickly
+              From Start to Success, We Build the Arc
             </h3>
           </div>
         </div>
@@ -122,12 +117,6 @@ const HomePage = () => {
       {/* Burger Menu */}
       <div className="fixed top-0 right-0 p-5 z-50 md:hidden">
       <NavBar />
-
-        {menuOpen && (
-          <div className="absolute flex flex-col gap-10 top-0 right-0 text-white mt-12 mr-5 rounded-lg shadow-lg p-5 shadow-image">
-            <NavBar />
-          </div>
-        )}
       </div>
     </div>
   );
