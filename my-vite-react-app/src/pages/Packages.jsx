@@ -84,7 +84,7 @@ const Packages = () => {
                                 <div className='flex flex-col gap-5 items-center w-full mt-4'>
                                     <h2 className='text-2xl font-bold'>{pkg.price}</h2>
                                     <button
-                                        className={`border text-white py-2 px-4 w-10 text-nowrap rounded-full bg-black hover:${pkg.buttonColor} hover:w-full transform transition-all`}
+                                        className={`border text-white py-2 px-4 w-10 text-nowrap rounded-full hover:${pkg.buttonColor} hover:w-full transform transition-all`}
                                         onClick={() => handleChoosePlan(pkg)}
                                     >
                                         {pkg.buttonText}
