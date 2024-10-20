@@ -48,7 +48,7 @@ const ContactUs = () => {
         };
 
         try {
-            await axios.post('http://localhost:5000/send-email', emailData);
+            await axios.post('https://smma-back.vercel.app/send-email', emailData);
             alert('Message sent successfully!');
         } catch (error) {
             console.error('Failed to send message:', error);
