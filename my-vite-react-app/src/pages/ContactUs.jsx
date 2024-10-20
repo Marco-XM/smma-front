@@ -4,7 +4,7 @@ import Select from 'react-select';
 import axios from 'axios';
 import Logo from '../components/Logo';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import packages from '../data/packagesData';
