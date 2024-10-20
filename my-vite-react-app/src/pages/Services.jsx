@@ -108,18 +108,30 @@ const Services = () => {
         backgroundImg.onload = handleImageLoad;
         overlayImg.onload = handleImageLoad;
       }, []);
+
+      const handleClickOutside = (event) => {
+        if (activeItem && !event.target.closest('.ServiceButton')) {
+            setActiveItem(null);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [activeItem]);
     
       if (loading) {
         return <Loading />;
       }
 
     return (
-        <div className={`flex flex-col min-h-screen bg-cover bg-center bg-black`} style={{ backgroundImage: `url(${image})` }}>
-            {/* Fixed NavBar */}
-            <div className={`fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
+        <div className={`relative flex flex-col min-h-screen bg-cover bg-center bg-black`} style={{ backgroundImage: `url(${image})` }}>
+            <div className={` fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
                 <div className="m-2 flex justify-between items-center">
                     <Logo />
-                    <div className="text-white mr-5 rounded-bl-full rounded-br-full">
+                    <div className="text-white mr-5 self-center rounded-bl-full rounded-br-full  md:block">
                         <NavBar />
                     </div>
                 </div>
@@ -154,8 +166,8 @@ const Services = () => {
                                             <FontAwesomeIcon icon={faChevronDown} className={`self-center mt-2 hoverEffect ${activeItem === `${serviceIndex}-${itemIndex}` ? 'rotate-180' : 'rotate-0'}`} />
                                         </button>
                                         <div
-                                            className={`${descriptionClass} ${activeItem === `${serviceIndex}-${itemIndex}` ? 'max-h-40 opacity-100 z-50' : 'max-h-0 opacity-0'}`}
-                                            style={{ position: 'absolute', top: '100%', left: 0, right: 0 }}
+                                            className={`bg-gray-700 ${descriptionClass} ${activeItem === `${serviceIndex}-${itemIndex}` ? 'max-h-40 bg-gray-900 text-white opacity-40 z-50' : 'max-h-0 opacity-0'}`}
+                                            style={{ position: 'relative', top: '100%', left: 0, right: 0 }}
                                         >
                                             <p>{item.description}</p>
                                         </div>
@@ -168,6 +180,9 @@ const Services = () => {
             </div>
         </div>
         <Footer />
+        <div className="fixed top-0 right-0 p-5 z-50 md:hidden">
+            <NavBar />
+        </div>
     </div>
 );
 };

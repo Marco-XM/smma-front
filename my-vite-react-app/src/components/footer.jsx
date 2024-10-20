@@ -25,7 +25,7 @@ const Footer = () => {
 
                 {/* Centered buttons section */}
                 <div className="flex flex-col items-center mb-10 md:mb-0 md:w-1/3">
-                    <div className="flex space-x-2 sm:space-x-3 md:space-x-5 text-center">
+                    <div className="flex space-x-2 text-sm sm:space-x-3 md:space-x-5 text-center">
                         <Link to="/services" className="text-white hover:text-gray-200 transition-all">Services</Link>
                         <span>|</span>
                         <Link to="/packages" className="text-white hover:text-gray-200 transition-all">Packages & Pricing</Link>

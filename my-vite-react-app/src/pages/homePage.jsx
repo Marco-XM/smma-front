@@ -117,7 +117,7 @@ const HomePage = () => {
           <h1 className="text-[5.5rem] sm:text-[9rem] md:[10rem] lg:text-[12rem] bordered-text welcome-container self-center" style={{ zIndex: 3 }}>
               Welcome
             </h1>
-            <h3 className="translate-x-20 lg:text-2xl typing-effect font-thin self-center lg:translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
+            <h3 className="translate-x-20 text-xs lg:text-2xl typing-effect font-thin self-center lg:translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
               From Start to Success, We Build the Arc
             </h3>
           </div>

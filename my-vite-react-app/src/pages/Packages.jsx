@@ -96,6 +96,9 @@ const Packages = () => {
                 </div>
             </div>
             <Footer />
+            <div className="fixed top-0 right-0 p-5 z-50 md:hidden">
+                <NavBar />
+            </div>
         </div>
     );
 };
