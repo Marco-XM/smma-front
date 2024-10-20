@@ -72,7 +72,7 @@ const Services = () => {
 
     const className = 'p-4 bg-green-300 bg-opacity-0 backdrop-blur-xl flex gap-5 flex-col rounded-xl shadow-md flex-1 relative';
     const innerBoxClass = 'p-5 bg-blue-300 bg-opacity-0 rounded-md flex-1';
-    const descriptionClass = 'p-2 text-black font-semibold absolute bg-white bg-opacity-100 mb-2 w-full rounded-md transition-all duration-500 ease-in-out backdrop-blur-xl';
+    const descriptionClass = 'p-2 font-semibold bg-black text-white bg-opacity-40 rounded-md transition-all duration-500 ease-in-out backdrop-blur-xl';
 
     // Function to calculate z-index based on the position of the box in the array
     const calculateZIndex = (index, total) => {
@@ -166,10 +166,10 @@ const Services = () => {
                                             <FontAwesomeIcon icon={faChevronDown} className={`self-center mt-2 hoverEffect ${activeItem === `${serviceIndex}-${itemIndex}` ? 'rotate-180' : 'rotate-0'}`} />
                                         </button>
                                         <div
-                                            className={`bg-gray-700 ${descriptionClass} ${activeItem === `${serviceIndex}-${itemIndex}` ? 'max-h-40 bg-gray-900 text-white opacity-40 z-50' : 'max-h-0 opacity-0'}`}
+                                            className={`${descriptionClass} ${activeItem === `${serviceIndex}-${itemIndex}` ? 'max-h-40 z-50' : 'max-h-0 opacity-0'}`}
                                             style={{ position: 'relative', top: '100%', left: 0, right: 0 }}
                                         >
-                                            <p>{item.description}</p>
+                                            <p className='opacity-100'>{item.description}</p>
                                         </div>
                                     </div>
                                 ))}
