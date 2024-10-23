@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import image from '../assets/northcost-3.jpg';
 import imagetop from '../assets/northcost-33.png';
-import image5 from '../assets/Untitled-98.jpg';
+import image5 from '../assets/12.png';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 import Logo from '../components/Logo';
@@ -148,7 +148,7 @@ const HomePage = () => {
       </div>
 
         <div
-          className='section relative h-screen bg-cover bg-center flex background'
+          className='section relative h-screen bg-cover bg-bottom flex '
           style={{ backgroundImage: `url(${image5})` }}
           ref={sectionRef}
         >
