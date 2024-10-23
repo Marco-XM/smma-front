@@ -88,17 +88,17 @@ const HomePage = () => {
     overlayImg.onload = handleImageLoad;
   }, []);
 
-  // useEffect(() => {
-  //   let index = -1;
-  //   const interval = setInterval(() => {
-  //     setTypedText((prev) => prev + fullText[index]);
-  //     index++;
-  //     if (index >= fullText.length - 1 ) {
-  //       clearInterval(interval);
-  //     }
-  //   }, 70); // Adjust typing speed here
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    let index = -1;
+    const interval = setInterval(() => {
+      setTypedText((prev) => prev + fullText[index]);
+      index++;
+      if (index >= fullText.length - 1 ) {
+        clearInterval(interval);
+      }
+    }, 70); // Adjust typing speed here
+    return () => clearInterval(interval);
+  }, []);
 
   if (loading) {
     return <Loading />;
@@ -148,7 +148,7 @@ const HomePage = () => {
       </div>
 
         <div
-          className='section relative h-screen bg-fixed bg-center flex background'
+          className='section relative h-screen bg-cover bg-center flex background'
           style={{ backgroundImage: `url(${image5})` }}
           ref={sectionRef}
         >
