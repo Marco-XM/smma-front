@@ -89,7 +89,7 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    let index = -1;
+    let index = 0;
     const interval = setInterval(() => {
       setTypedText((prev) => prev + fullText[index]);
       index++;
