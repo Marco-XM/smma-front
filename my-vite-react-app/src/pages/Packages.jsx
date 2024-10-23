@@ -65,30 +65,33 @@ const Packages = () => {
                     </div>
                 </div>
                 <div className='flex flex-col flex-grow items-center lg:gap-20 mt-32 lg:mt-40'>
-                    <h1 className='text-6xl lg:text-8xl text-white font-semibold mb-16'>Our Packages</h1>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20 w-full px-5'>
-                        {packages.map((pkg, index) => (
-                            <div key={index} className={`${pkg.color} flex flex-col justify-between text-white p-6 bg-opacity-15 backdrop-blur-xl rounded-lg shadow-lg`}>
-                                <div>
-                                    <h1 className='text-2xl font-bold mb-2'>{pkg.title}</h1>
-                                    <h2 className='text-xl mb-4'>{pkg.subtitle}</h2>
-                                    <div>
-                                        <h2 className='text-lg font-semibold mb-2'>Features:</h2>
-                                        <ol className='list-disc list-inside'>
-                                            {pkg.features.map((feature, idx) => (
-                                                <li key={idx} className='mb-1'>{feature}</li>
-                                            ))}
-                                        </ol>
-                                    </div>
+                <h1 className='text-6xl lg:text-8xl text-white font-semibold mb-16'>Our Packages</h1>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20 w-full px-5'>
+                    {packages.map((pkg, index) => (
+                        <div
+                            key={index}
+                            className={`${pkg.color} flex flex-col justify-between text-white p-6 bg-opacity-15 backdrop-blur-xl rounded-lg shadow-lg ${index === packages.length - 1 ? 'col-span-1 md:col-span-2 lg:col-span-3' : ''}`}
+                        >
+                            <div className='flex flex-col'>
+                                <h1 className='text-2xl font-bold self-center mb-2'>{pkg.title}</h1>
+                                <div className='flex flex-col gap-4 w-full'>
+                                    <h2 className='text-lg font-semibold'>Features:</h2>
+                                    <ol className='list-disc list-inside'>
+                                        {pkg.features.map((feature, idx) => (
+                                            <li key={idx} className='mb-1'>{feature}</li>
+                                        ))}
+                                    </ol>
                                 </div>
-                                <div className='flex flex-col gap-5 items-center w-full mt-4'>
-                                    <h2 className='text-2xl font-bold'>{pkg.price}</h2>
-                                    <button
-                                        className={`border text-white py-2 px-4 w-10 text-nowrap rounded-full hover:${pkg.buttonColor} hover:w-full transform transition-all`}
-                                        onClick={() => handleChoosePlan(pkg)}
-                                    >
-                                        {pkg.buttonText}
-                                    </button>
+                            </div>
+                            <div className='flex flex-col gap-5 items-center w-full mt-4'>
+                                <h2 className={`border-l p-4 text-xl mb-4 font-light text-left text-[1rem] ${index === packages.length - 1 ? 'max-w-6xl text-center' : ''}`}>{pkg.subtitle}</h2>
+                                <h2 className='text-2xl font-bold'>{pkg.price}</h2>
+                                <button
+                                    className={`border text-white py-2 px-4 w-10 text-nowrap rounded-full hover:${pkg.buttonColor} hover:w-full transform transition-all`}
+                                    onClick={() => handleChoosePlan(pkg)}
+                                >
+                                    {pkg.buttonText}
+                                </button>
                                 </div>
                             </div>
                         ))}

@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="container mx-auto flex flex-col md:gap-10 lg:flex-row text-nowrap justify-between items-center">
                 {/* Top left section for Arc Point Marketing */}
                 <div className="flex flex-col gap-5 mb-10 md:mb-0 md:w-1/3">
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl self-center">Arc Point Marketing</h1>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl self-center">Arc Point Agency</h1>
                     <p className="text-sm sm:text-base md:text-lg self-center">From Start to Success, We Build the Arc</p>
                 </div>
 

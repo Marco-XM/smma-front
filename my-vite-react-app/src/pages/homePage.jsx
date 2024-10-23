@@ -12,7 +12,8 @@ import Loading from '../components/Loading';
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  const [typedText, setTypedText] = useState('');
+  const fullText = 'From Start to Success, We Build the Arc';
 
 
   useEffect(() => {
@@ -77,6 +78,18 @@ const HomePage = () => {
     overlayImg.onload = handleImageLoad;
   }, []);
 
+  useEffect(() => {
+    let index = -1;
+    const interval = setInterval(() => {
+      setTypedText((prev) => prev + fullText[index]);
+      index++;
+      if (index >= fullText.length - 1 ) {
+        clearInterval(interval);
+      }
+    }, 70); // Adjust typing speed here
+    return () => clearInterval(interval);
+  }, []);
+
   if (loading) {
     return <Loading />;
   }
@@ -114,24 +127,23 @@ const HomePage = () => {
         </div>
         <div className="self-center w-full" style={{ zIndex: 3 }}>
           <div className="text-white flex flex-col justify-around transform -translate-y-28">
-          <h1 className="text-[5.5rem] sm:text-[9rem] md:[10rem] lg:text-[12rem] bordered-text welcome-container self-center" style={{ zIndex: 3 }}>
+          <h1 className="text-[5.5rem] sm:text-[9rem] md:[10rem] lg:text-[12rem] font-bold welcome-container self-center" style={{ zIndex: 3 }}>
               Welcome
             </h1>
-            <h3 className="translate-x-20 text-xs lg:text-2xl typing-effect font-thin self-center lg:translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
-              From Start to Success, We Build the Arc
+            <h3 className="translate-x-20 typing-effect text-xs lg:text-2xl font-thin self-center lg:translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
+              {typedText}
             </h3>
           </div>
         </div>
       </div>
 
         <div
-          className='section relative h-screen bg-cover bg-center flex background'
+          className='section relative h-screen bg-fixed bg-center flex background'
           style={{ backgroundImage: `url(${image5})` }}
         >
           {/* Content for the second section */}
-          <div>
-            <div></div>
-            <div></div>
+          <div className='text-white text-8xl font-extrabold flex justify-center items-center'>
+              <h2 className='self-center text-center bg-gray-600 bg-opacity-25'>Your success story begins here. Let's build your brand, create impactful content, and drive results that matter.</h2>
           </div>
         </div>
 
