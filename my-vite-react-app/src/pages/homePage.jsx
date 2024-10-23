@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import image from '../assets/northcost-3.jpg';
 import imagetop from '../assets/northcost-33.png';
@@ -13,7 +13,10 @@ const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
   const [typedText, setTypedText] = useState('');
+  const [blurAmount, setBlurAmount] = useState(0);
   const fullText = 'From Start to Success, We Build the Arc';
+  const sectionRef = useRef(null);
+
 
 
   useEffect(() => {
@@ -53,7 +56,14 @@ const HomePage = () => {
       } else {
         setScrolled(false);
       }
+      // Update blur amount based on scroll position
+      const sectionTop = sectionRef.current.offsetTop;
+      const sectionHeight = sectionRef.current.offsetHeight;
+      const maxBlur = 10; // Maximum blur amount
+      const blur = Math.max(maxBlur - (scrollPosition - sectionTop + sectionHeight) / 50, 0);
+      setBlurAmount(blur);
     };
+
 
     setInitialPosition();
     window.addEventListener('scroll', handleScroll);
@@ -78,17 +88,17 @@ const HomePage = () => {
     overlayImg.onload = handleImageLoad;
   }, []);
 
-  useEffect(() => {
-    let index = -1;
-    const interval = setInterval(() => {
-      setTypedText((prev) => prev + fullText[index]);
-      index++;
-      if (index >= fullText.length - 1 ) {
-        clearInterval(interval);
-      }
-    }, 70); // Adjust typing speed here
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   let index = -1;
+  //   const interval = setInterval(() => {
+  //     setTypedText((prev) => prev + fullText[index]);
+  //     index++;
+  //     if (index >= fullText.length - 1 ) {
+  //       clearInterval(interval);
+  //     }
+  //   }, 70); // Adjust typing speed here
+  //   return () => clearInterval(interval);
+  // }, []);
 
   if (loading) {
     return <Loading />;
@@ -140,11 +150,14 @@ const HomePage = () => {
         <div
           className='section relative h-screen bg-fixed bg-center flex background'
           style={{ backgroundImage: `url(${image5})` }}
+          ref={sectionRef}
         >
           {/* Content for the second section */}
-          <div className='text-white text-8xl font-extrabold flex justify-center items-center'>
-              <h2 className='self-center text-center bg-gray-600 bg-opacity-25'>Your success story begins here. Let's build your brand, create impactful content, and drive results that matter.</h2>
-          </div>
+          <div className='text-white bg-gray-800 bg-opacity-25 m-5 lg:m-20 relative w-full font-extrabold flex flex-wrap justify-center items-center p-5' style={{ filter: `blur(${blurAmount}px)` }}>
+          <h2 className='text-left text-[3.1rem] self-center leading-tight break-words whitespace-normal max-w-full md:max-w-3xl'>
+            Your success story begins here. Let's build your brand, create impactful content, and drive results that matter.
+          </h2>
+        </div>
         </div>
 
       <Footer/>

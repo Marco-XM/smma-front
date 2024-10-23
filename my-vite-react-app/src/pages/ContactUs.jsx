@@ -202,6 +202,7 @@ const ContactUs = () => {
                                 onChange={handlePlanChange}
                                 options={options}
                                 placeholder="Select a plan"
+                                isSearchable={false}
                                 styles={{
                                     control: (provided) => ({
                                         ...provided,
