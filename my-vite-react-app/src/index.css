@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Arima:wght@100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Arima:wght@100..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Anton", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  /* letter-spacing: 1px; */
   line-height: 1.5;
   font-weight: 400;
 
@@ -15,7 +22,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 @keyframes typing {
   from { width: 0; }
   to { width: 50%; }

@@ -50,15 +50,12 @@ const packages = [
         price: '30,000 EGP',
     },
     {
-        title: 'Custom Package',
         subtitle: 'Not sure which package suits your needs? Let’s craft a tailor-made package just for you! Select the services that match your goals, and we’ll create a personalized plan to help your business thrive. Get in touch to build your custom solution today!',
         features: [
-            'Customizable Services'
         ],
         buttonText: 'Build Custom Package',
         color: 'bg-yellow-400',
         buttonColor: 'bg-gradient-to-r from-yellow-500 via-black to-red-500',
-        price: 'Contact Us',
     },
 ];
 

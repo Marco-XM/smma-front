@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 import Logo from '../components/Logo';
@@ -79,6 +79,8 @@ const Services = () => {
         return total - index; // Higher index for earlier boxes
     };
 
+
+    
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
