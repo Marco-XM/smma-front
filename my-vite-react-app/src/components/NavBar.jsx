@@ -45,7 +45,7 @@ const NavBar = () => {
                 </div>
             </div>
             {isMenuOpen && (
-                <div className="absolute flex flex-col gap-10 top-0 right-0 bg-gray-700 bg-opacity-30 mt-12 mr-11 rounded-lg shadow-lg items-center p-5 shadow-image text-nowrap menu-content">
+                <div className="absolute flex flex-col gap-10 top-0 right-0 bg-black bg-opacity-70 mt-12 mr-11 rounded-lg shadow-lg items-center p-5 shadow-image text-nowrap menu-content">
                     <Link to="/services" className="text-white hover:text-gray-200 transition-all">Services</Link>
                     <Link to="/packages" className="text-white hover:text-gray-200 transition-all">Packages & Pricing</Link>
                     <button onClick={handleContactUsClick} className="text-white hover:text-gray-200 transition-all">Contact Us</button>
