@@ -158,17 +158,19 @@ const HomePage = () => {
           ref={sectionRef}
         >
           {/* Content for the second section */}
-          <div className='text-white bg-gray-800 bg-opacity-25 m-5 lg:m-20 relative w-full font-extrabold flex flex-col justify-center gap-20 flex-wrap items-center p-5' style={{ filter: `blur(${blurAmount}px)` }}>
-            <h2
-              ref={ref}
-              className={`text-left self-center leading-tight max-w-full md:max-w-3xl 
-                text-[2rem] md:text-[3.1rem] lg:text-[3.5rem] font-semibold transition-opacity duration-1000 transform ${
-                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-            >
-              <span className='whitespace-nowrap text-[1.3rem] lg:text-3xl font-bold underline italic'>Your success story begins here.</span><br/> Let's build your brand, create impactful content, and drive results that matter.
-            </h2>
-            <Link to="/packages" className='bg-black p-5 rounded-xl bg-opacity-20 glow-on-hover transform transition-all'>Discover Our Packages</Link>
+          <div className='text-white m-5 lg:m-20 relative w-full font-extrabold flex flex-col justify-center gap-20 flex-wrap items-center p-5' style={{ filter: `blur(${blurAmount}px)` }}>
+            <div className='bg-gray-800 bg-opacity-20 p-20 rounded-xl flex flex-col justify-center gap-20'>
+              <h2
+                ref={ref}
+                className={`text-left self-center leading-tight max-w-full md:max-w-3xl 
+                  text-[2rem] md:text-[3.1rem] lg:text-[3.5rem] font-semibold transition-opacity duration-1000 transform ${
+                    inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+              >
+                <span className='whitespace-nowrap text-[1.3rem] lg:text-3xl font-bold underline italic'>Your success story begins here.</span><br/> Let's build your brand, create impactful content, and drive results that matter.
+              </h2>
+              <Link to="/packages" className='bg-black p-5 self-center rounded-xl bg-opacity-20 glow-on-hover transform transition-all'>Discover Our Packages</Link>
+              </div>
           </div>
         </div>
 
