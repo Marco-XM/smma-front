@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import image from '../assets/northcost-3.jpg';
 import imagetop from '../assets/northcost-33.png';
 import image5 from '../assets/12.png';
@@ -14,7 +14,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [typedText, setTypedText] = useState('');
   const [blurAmount, setBlurAmount] = useState(0);
-  const fullText = ' From Start to Success, We Build the Arc';
+  const fullText = ' From Start to Success, We Build the Arc.';
   const sectionRef = useRef(null);
 
 
@@ -140,7 +140,7 @@ const HomePage = () => {
           <h1 className="text-[5.5rem] sm:text-[9rem] md:[10rem] lg:text-[12rem] font-bold welcome-container self-center" style={{ zIndex: 3 }}>
               Welcome
             </h1>
-            <h3 className="translate-x-20 typing-effect text-xs lg:text-2xl font-thin self-center lg:translate-x-36 -translate-y-5" style={{ zIndex: 4 }}>
+            <h3 className="translate-x-20 typing-effect text-xs lg:text-2xl font-thin self-center lg:translate-x-36" style={{ zIndex: 4 }}>
               {typedText}
             </h3>
           </div>
@@ -153,11 +153,12 @@ const HomePage = () => {
           ref={sectionRef}
         >
           {/* Content for the second section */}
-          <div className='text-white bg-gray-800 bg-opacity-25 m-5 lg:m-20 relative w-full font-extrabold flex flex-wrap justify-center items-center p-5' style={{ filter: `blur(${blurAmount}px)` }}>
-          <h2 className='text-left text-[3.1rem] self-center leading-tight break-words whitespace-normal max-w-full md:max-w-3xl'>
-            Your success story begins here. Let's build your brand, create impactful content, and drive results that matter.
-          </h2>
-        </div>
+          <div className='text-white bg-gray-800 bg-opacity-25 m-5 lg:m-20 relative w-full font-extrabold flex flex-col justify-around flex-wrap items-center p-5' style={{ filter: `blur(${blurAmount}px)` }}>
+            <h2 className='text-left text-[3.1rem] self-center leading-tight break-words whitespace-normal max-w-full md:max-w-3xl'>
+              Your success story begins here. Let's build your brand, create impactful content, and drive results that matter.
+            </h2>
+            <Link to="/packages" className='bg-black p-5 rounded-xl bg-opacity-20 glow-on-hover transform transition-all'>Discover Our Packages</Link>
+          </div>
         </div>
 
       <Footer/>

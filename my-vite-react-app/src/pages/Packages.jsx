@@ -70,14 +70,15 @@ const Packages = () => {
                     {packages.map((pkg, index) => (
                         <div
                             key={index}
-                            className={`${pkg.color} flex flex-col justify-between text-white p-6 bg-opacity-15 backdrop-blur-xl rounded-lg shadow-lg ${index === packages.length - 1 ? 'col-span-1 md:col-span-2 lg:col-span-3' : ''}`}
+                            className={`${pkg.color} flex flex-col justify-between text-white p-6 bg-opacity-15 backdrop-blur-xl rounded-lg shadow-lg ${index === packages.length - 1 ? 'col-span-1 md:col-span-2 flex-row lg:col-span-3' : ''}`}
                         >
                             <div className='flex flex-col'>
-                                <h1 className='text-2xl font-bold self-center mb-2'>{pkg.title}</h1>
+                                <h1 className={`text-2xl font-bold self-center mb-2 ${index === packages.length - 1 ? 'text-4xl self-start' : ''}`}>{pkg.title}</h1>
                                 <div className={`flex flex-col gap-4 w-full `}>
-                                    <h2 className={`text-lg font-semibold ${index === packages.length - 1 ? 'text-4xl items-center' : ''}`}>
-                                        {pkg.title ? 'Features:' : 'Custom Package'}
-                                    </h2>                                    <ol className='list-disc list-inside'>
+                                    <h2 className={`text-lg font-semibold ${index === packages.length - 1 ? 'text-4xl items-center hidden' : ''}`}>
+                                        {index === packages.length - 1 ? 'Custom Package' : 'Features:'}
+                                    </h2>
+                                    <ol className='list-disc list-inside'>
                                         {pkg.features.map((feature, idx) => (
                                             <li key={idx} className='mb-1'>{feature}</li>
                                         ))}
@@ -88,7 +89,7 @@ const Packages = () => {
                                 <h2 className={`border-l p-4 text-xl mb-4 font-light text-left text-[1rem] ${index === packages.length - 1 ? 'max-w-6xl text-center' : ''}`}>{pkg.subtitle}</h2>
                                 <h2 className='text-2xl font-bold'>{pkg.price}</h2>
                                 <button
-                                    className={`border text-white py-2 px-4 w-10 text-nowrap rounded-full hover:${pkg.buttonColor} hover:w-full transform transition-all ${index === packages.length - 1 ? 'max-w-xl text-center' : ''}`}
+                                    className={`border text-white py-2 px-4 w-full lg:w-10 text-nowrap rounded-full hover:w-full transform transition-all ${index === packages.length - 1 ? 'max-w-xl w-full text-center' : ''}`}
                                     onClick={() => handleChoosePlan(pkg)}
                                 >
                                     {pkg.buttonText}

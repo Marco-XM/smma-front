@@ -44,7 +44,7 @@ const Footer = () => {
                           <i className="fab fa-facebook-f text-2xl sm:text-2xl md:text-3xl hover:text-blue-500 transform transition-all"></i>
                       </a>
                       <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className='instagram-icon transform transition-all'>
-                      <svg className="w-9 h-9 transform transition-all" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-7 h-7 lg:w-9 lg:h-9 transform transition-all" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <linearGradient id="instagramGradient" x1="0" y1="0" x2="1" y2="1">
                                         <stop offset="0%" stopColor="#f09433" />
