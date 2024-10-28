@@ -158,8 +158,8 @@ const HomePage = () => {
           ref={sectionRef}
         >
           {/* Content for the second section */}
-          <div className='text-white m-5 lg:m-20 relative w-full font-extrabold flex flex-col justify-center gap-20 flex-wrap items-center p-5' style={{ filter: `blur(${blurAmount}px)` }}>
-            <div className='bg-gray-800 bg-opacity-20 p-20 rounded-xl flex flex-col justify-center gap-20'>
+          <div className='text-white relative w-full font-extrabold flex flex-col justify-center gap-20 flex-wrap items-center' style={{ filter: `blur(${blurAmount}px)` }}>
+            <div className='bg-gray-800 bg-opacity-20 m-5 p-5 lg:p-20 rounded-xl flex flex-col justify-center gap-20'>
               <h2
                 ref={ref}
                 className={`text-left self-center leading-tight max-w-full md:max-w-3xl 
