@@ -88,7 +88,7 @@ const HomePage = () => {
     overlayImg.onload = handleImageLoad;
   }, []);
 
-  useEffect(() => {
+  setTimeout(useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       setTypedText((prev) => prev + fullText[index]);
@@ -98,7 +98,7 @@ const HomePage = () => {
       }
     }, 70); // Adjust typing speed here
     return () => clearInterval(interval);
-  }, []);
+  }, []));
 
   if (loading) {
     return <Loading />;
