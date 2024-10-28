@@ -88,17 +88,20 @@ const HomePage = () => {
     overlayImg.onload = handleImageLoad;
   }, []);
 
-  setTimeout(useEffect(() => {
+  useEffect(() => {
+    setTypedText(''); // Clear previous text before starting
+
     let index = 0;
     const interval = setInterval(() => {
       setTypedText((prev) => prev + fullText[index]);
       index++;
-      if (index >= fullText.length - 1) {
+      if (index >= fullText.length) {
         clearInterval(interval);
       }
     }, 70); // Adjust typing speed here
+
     return () => clearInterval(interval);
-  }, []), 10);
+  }, [fullText]);
 
   if (loading) {
     return <Loading />;

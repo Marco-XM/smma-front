@@ -20,7 +20,7 @@ const Footer = () => {
                 {/* Top left section for Arc Point Marketing */}
                 <div className="flex flex-col gap-5 mb-10 md:mb-0 md:w-1/3">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl self-center">Arc Point Agency</h1>
-                    <p className="text-sm sm:text-base md:text-lg self-center">From Start to Success, We Build the Arc</p>
+                    <p className="text-sm sm:text-base md:text-lg self-center">From Start to Success, We Build the Arc.</p>
                 </div>
 
                 {/* Centered buttons section */}
@@ -68,7 +68,7 @@ const Footer = () => {
 
             {/* Copyright section */}
             <div className="mt-10 text-center text-xs sm:text-sm md:text-base">
-                © {new Date().getFullYear()} Arc Point Marekting. All rights reserved.
+                © {new Date().getFullYear()} Arc Point Agency. All rights reserved.
             </div>
         </footer>
     );
