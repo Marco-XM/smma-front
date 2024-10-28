@@ -93,7 +93,7 @@ const HomePage = () => {
     const interval = setInterval(() => {
       setTypedText((prev) => prev + fullText[index]);
       index++;
-      if (index >= fullText.length - 1 ) {
+      if (index >= fullText.length) {
         clearInterval(interval);
       }
     }, 70); // Adjust typing speed here
