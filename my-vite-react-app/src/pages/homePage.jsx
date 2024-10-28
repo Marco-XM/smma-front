@@ -12,9 +12,16 @@ import Loading from '../components/Loading';
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [typedText, setTypedText] = useState('');
   const [blurAmount, setBlurAmount] = useState(0);
-  const fullText = ' From Start to Success, We Build the Arc.';
+  const [typedText, setTypedText] = useState('');
+  const words = ['Story.', 'Brand.', 'Arc.'];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [charIndex, setCharIndex] = useState(0);
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const delayBetweenWords = 1000;
+  const baseText = 'From Start to Success, We Build the ';
   const sectionRef = useRef(null);
 
 
@@ -88,17 +95,34 @@ const HomePage = () => {
     overlayImg.onload = handleImageLoad;
   }, []);
 
-  setTimeout(useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setTypedText((prev) => prev + fullText[index]);
-      index++;
-      if (index >= fullText.length - 1) {
-        clearInterval(interval);
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentWord = words[currentWordIndex];
+      if (isDeleting) {
+        if (charIndex > 0) {
+          setTypedText(baseText + currentWord.substring(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        } else {
+          setIsDeleting(false);
+          if (currentWordIndex < words.length - 1) {
+            setCurrentWordIndex(currentWordIndex + 1);
+          }
+        }
+      } else {
+        if (charIndex < currentWord.length) {
+          setTypedText(baseText + currentWord.substring(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        } else {
+          if (currentWordIndex < words.length - 1) {
+            setTimeout(() => setIsDeleting(true), delayBetweenWords);
+          }
+        }
       }
-    }, 70); // Adjust typing speed here
-    return () => clearInterval(interval);
-  }, []), 10);
+    };
+
+    const typingInterval = setInterval(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+    return () => clearInterval(typingInterval);
+  }, [charIndex, isDeleting, currentWordIndex]);
 
   if (loading) {
     return <Loading />;
