@@ -14,7 +14,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [typedText, setTypedText] = useState('');
   const [blurAmount, setBlurAmount] = useState(0);
-  const fullText = 'From Start to Success, We Build the Arc';
+  const fullText = ' From Start to Success, We Build the Arc';
   const sectionRef = useRef(null);
 
 
