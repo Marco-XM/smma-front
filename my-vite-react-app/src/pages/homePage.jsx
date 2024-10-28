@@ -14,7 +14,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [typedText, setTypedText] = useState('');
   const [blurAmount, setBlurAmount] = useState(0);
-  const fullText = ' From Start to Success, We Build the Arc.';
+  const fullText = '   From Start to Success, We Build the Arc.';
   const sectionRef = useRef(null);
 
 
@@ -88,20 +88,17 @@ const HomePage = () => {
     overlayImg.onload = handleImageLoad;
   }, []);
 
-  useEffect(() => {
-    setTypedText(''); // Clear previous text before starting
-
+  setTimeout(useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       setTypedText((prev) => prev + fullText[index]);
       index++;
-      if (index >= fullText.length) {
+      if (index >= fullText.length - 1) {
         clearInterval(interval);
       }
     }, 70); // Adjust typing speed here
-
     return () => clearInterval(interval);
-  }, [fullText]);
+  }, []), 0);
 
   if (loading) {
     return <Loading />;
