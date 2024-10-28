@@ -93,12 +93,12 @@ const HomePage = () => {
     const interval = setInterval(() => {
       setTypedText((prev) => prev + fullText[index]);
       index++;
-      if (index >= fullText.length) {
+      if (index >= fullText.length - 1) {
         clearInterval(interval);
       }
     }, 70); // Adjust typing speed here
     return () => clearInterval(interval);
-  }, []));
+  }, []), 10);
 
   if (loading) {
     return <Loading />;
