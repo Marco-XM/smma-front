@@ -85,7 +85,7 @@ if (loading) {
         <h1 className='text-6xl lg:text-8xl text-white font-semibold mt-20'>About Us</h1>
         <div className='flex flex-col lg:flex-row max-w-6xl gap-20 lg:gap-20 mb-5'>
           <div className='relative bg-white rounded-xl cursor-pointer bg-opacity-0' onClick={toggleVisibility1}>
-            <p className='text-white text-left text-sm lg:text-lg md:text-md font-semibold bg-blue-500 bg-opacity-25 p-10 rounded-xl'>
+            <p className='text-white text-left text-sm lg:text-lg md:text-md font-semibold bg-blue-500 bg-opacity-25 backdrop-blur-xl p-10 rounded-xl'>
               At Arc Point, we believe that every brand has a unique story waiting to be told. Our mission is to help businesses, especially young entrepreneurs, craft that narrative through tailored marketing strategies and innovative digital solutions.
             </p>
             <div className={`absolute flex flex-col justify-center items-center w-full bg-white bottom-0 left-0 rounded-xl overflow-hidden transform transition-all duration-500 h-full bg-opacity-0 ${isVisible1 ? 'backdrop-blur-xl' : 'backdrop-blur-0 opacity-0'}`}>
@@ -98,7 +98,7 @@ if (loading) {
             </div>
           </div>
           <div className='relative bg-white rounded-xl cursor-pointer bg-opacity-0' onClick={toggleVisibility2}>
-            <p className='text-white text-left text-sm lg:text-lg md:text-md font-semibold bg-blue-500 bg-opacity-25 p-10 rounded-xl'>
+            <p className='text-white text-left text-sm lg:text-lg md:text-md font-semibold bg-blue-500 bg-opacity-25 backdrop-blur-xl p-10 rounded-xl'>
               Founded with a passion for creativity and growth, we combine strategic thinking with a deep understanding of modern digital landscapes. From content creation to community management, every service we offer is designed to guide you through each chapter of your business journey. Together, From Start to Success, We Build the Arc.
             </p>
             <div className={`absolute flex flex-col justify-center items-center w-full bg-white bottom-0 left-0 rounded-xl overflow-hidden transform transition-all duration-500 h-full bg-opacity-0 ${isVisible2 ? 'backdrop-blur-xl' : 'backdrop-blur-0 opacity-0'}`}>
