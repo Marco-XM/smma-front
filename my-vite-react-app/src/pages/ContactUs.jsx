@@ -237,7 +237,9 @@ const ContactUs = () => {
                                         <h1 className='text-2xl font-bold mb-2'>{selectedPlanState.title}</h1>
                                         <h2 className='text-xl mb-4'>{selectedPlanState.subtitle}</h2>
                                         <div>
-                                            <h2 className='text-lg font-semibold mb-2'>Features:</h2>
+                                        {selectedPlanState.title !== 'Custom Package' && (
+                                                <h2 className='text-lg font-semibold mb-2'>Features:</h2>
+                                            )}
                                             <ol className='list-disc list-inside'>
                                                 {selectedPlanState.features.map((feature, idx) => (
                                                     <li key={idx} className='mb-1'>{feature}</li>
