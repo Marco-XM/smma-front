@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import image from '../assets/northcost-3.jpg';
 import imagetop from '../assets/northcost-33.png';
@@ -16,6 +17,10 @@ const HomePage = () => {
   const [blurAmount, setBlurAmount] = useState(0);
   const fullText = '   From Start to Success, We Build the Arc.';
   const sectionRef = useRef(null);
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.1,    // Animation triggers when 10% of the component is in vie
+  });
 
 
 
@@ -154,8 +159,14 @@ const HomePage = () => {
         >
           {/* Content for the second section */}
           <div className='text-white bg-gray-800 bg-opacity-25 m-5 lg:m-20 relative w-full font-extrabold flex flex-col justify-around flex-wrap items-center p-5' style={{ filter: `blur(${blurAmount}px)` }}>
-            <h2 className='text-left text-[3.1rem] self-center leading-tight break-words whitespace-normal max-w-full md:max-w-3xl'>
-              Your success story begins here. Let's build your brand, create impactful content, and drive results that matter.
+            <h2
+              ref={ref}
+              className={`text-left self-center leading-tight max-w-full md:max-w-3xl 
+                text-[2rem] md:text-[3.1rem] lg:text-[3.5rem] font-semibold transition-opacity duration-1000 transform ${
+                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+            >
+              <span className='whitespace-nowrap text-[1.3rem] lg:text-3xl font-bold underline italic'>#Your success story begins here.</span><br/> Let's build your brand, create impactful content, and drive results that matter.
             </h2>
             <Link to="/packages" className='bg-black p-5 rounded-xl bg-opacity-20 glow-on-hover transform transition-all'>Discover Our Packages</Link>
           </div>
