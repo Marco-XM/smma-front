@@ -166,7 +166,7 @@ const HomePage = () => {
                   inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
             >
-              <span className='whitespace-nowrap text-[1.3rem] lg:text-3xl font-bold underline italic'>#Your success story begins here.</span><br/> Let's build your brand, create impactful content, and drive results that matter.
+              <span className='whitespace-nowrap text-[1.3rem] lg:text-3xl font-bold underline italic'>Your success story begins here.</span><br/> Let's build your brand, create impactful content, and drive results that matter.
             </h2>
             <Link to="/packages" className='bg-black p-5 rounded-xl bg-opacity-20 glow-on-hover transform transition-all'>Discover Our Packages</Link>
           </div>
