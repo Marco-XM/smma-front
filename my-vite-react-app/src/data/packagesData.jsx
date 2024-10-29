@@ -9,7 +9,7 @@ const packages = [
             'Analytics Reporting'
         ],
         buttonText: 'Choose Basic',
-        color: 'bg-red-600',
+        color: 'bg-blue-800',
         buttonColor: 'bg-gradient-to-r from-blue-500 via-black to-green-500',
         price: '15,000 EGP',
     },
@@ -26,7 +26,7 @@ const packages = [
             'Web Maintenance'
         ],
         buttonText: 'Choose Standard',
-        color: 'bg-green-400',
+        color: 'bg-green-700',
         buttonColor: 'bg-gradient-to-r from-green-500 via-black to-purple-500',
         price: '25,000 EGP',
     },
@@ -45,7 +45,7 @@ const packages = [
             'SEO Campaign'
         ],
         buttonText: 'Choose Premium',
-        color: 'bg-purple-400',
+        color: 'bg-purple-600',
         buttonColor: 'bg-gradient-to-r from-purple-500 via-black to-blue-500',
         price: '30,000 EGP',
     },
@@ -55,7 +55,7 @@ const packages = [
         features: [
         ],
         buttonText: 'Build Custom Package',
-        color: 'bg-yellow-400',
+        color: 'bg-yellow-700',
         buttonColor: 'bg-gradient-to-r from-yellow-500 via-black to-red-500',
     },
 ];

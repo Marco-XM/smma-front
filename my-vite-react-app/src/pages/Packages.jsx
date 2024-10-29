@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
-import image from '../assets/laser.jpg';
+import image from '../assets/Un.jpg';
 import packages from '../data/packagesData';
 import Loading from '../components/Loading';
 
@@ -70,7 +70,7 @@ const Packages = () => {
                     {packages.map((pkg, index) => (
                         <div
                             key={index}
-                            className={`${pkg.color} flex flex-col justify-between text-white p-6 bg-opacity-15 backdrop-blur-xl rounded-lg shadow-lg ${index === packages.length - 1 ? 'col-span-1 md:col-span-2 flex-row lg:col-span-3' : ''}`}
+                            className={`${pkg.color} flex flex-col justify-between text-white p-6 bg-opacity-25 backdrop-blur-xl rounded-lg shadow-lg ${index === packages.length - 1 ? 'col-span-1 md:col-span-2 flex-row lg:col-span-3' : ''}`}
                         >
                             <div className='flex flex-col'>
                                 <h1 className={`text-2xl font-bold self-center mb-2 ${index === packages.length - 1 ? 'text-2xl self-start' : ''}`}>{pkg.title}</h1>
