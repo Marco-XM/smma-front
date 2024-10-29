@@ -8,6 +8,8 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 import Logo from '../components/Logo';
 import Loading from '../components/Loading';
+import { Helmet } from "react-helmet";
+
 
 
 const HomePage = () => {
@@ -110,6 +112,15 @@ const HomePage = () => {
   }
 
   return (
+    <>
+        <Helmet>
+      <title>Arc Point Agency - Marketing & Business Solutions</title>
+      <meta name="description" content="Enhancing brands with top-notch marketing and business solutions." />
+      <meta property="og:title" content="Arc Point Agency - Elevate Your Brand" />
+      <meta property="og:description" content="Enhancing brands with top-notch marketing and business solutions." />
+      <meta property="og:image" content="/src/assets/white A with liquify background_png.png" />
+      <meta property="og:url" content="https://arc-point-agency.vercel.app/" />
+    </Helmet>
     <div className="grid">
         <div
           className="section h-screen bg-cover bg-center flex background relative overflow-hidden"
@@ -181,6 +192,7 @@ const HomePage = () => {
       <NavBar />
       </div>
     </div>
+    </>
   );
 };
 
