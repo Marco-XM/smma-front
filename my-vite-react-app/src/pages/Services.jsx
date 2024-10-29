@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 import Logo from '../components/Logo';
-import image from '../assets/unti.jpg';
+import image from '../assets/Unti.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBullhorn, faCamera, faPalette, faGlobe, faAd, faUsers, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Loading from '../components/Loading';

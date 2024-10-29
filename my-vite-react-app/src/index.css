@@ -24,10 +24,6 @@
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
 
 @keyframes typing {
   from { width: 0; }
