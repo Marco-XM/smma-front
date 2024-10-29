@@ -45,13 +45,17 @@ const HomePage = () => {
     
       const speed = 0.25; // Speed factor for the background parallax effect
       const overlaySpeed = 0.25; // Speed factor for the overlay
+      const maxOffset = window.innerHeight; // Maximum offset value
     
       backgrounds.forEach((background, index) => {
         let offset = scrollPosition * speed;
         if (index === 1) {
-          offset -= window.innerHeight; // Subtract the height of the screen for the second section
-        }
+          offset -= window.innerHeight;
+          offset = Math.max(offset, maxOffset); // Subtract the height of the screen for the second section
+        } else {
+        offset = Math.min(offset, maxOffset); // Limit the offset to the maximum value
         background.style.backgroundPositionY = `${offset}px`;
+        }
       });
     
       overlays.forEach((overlay, index) => {
@@ -59,6 +63,7 @@ const HomePage = () => {
         if (index === 1) {
           overlayOffset -= window.innerHeight; // Subtract the height of the screen for the second section
         }
+        overlayOffset = Math.min(overlayOffset, maxOffset); // Limit the offset to the maximum value
         overlay.style.backgroundPositionY = `${overlayOffset}px`;
       });
     
@@ -69,7 +74,7 @@ const HomePage = () => {
         setScrolled(false);
       }
     };
-  
+    
     setInitialPosition();
     window.addEventListener('scroll', handleScroll);
     return () => {
