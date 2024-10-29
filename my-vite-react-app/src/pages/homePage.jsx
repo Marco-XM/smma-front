@@ -16,7 +16,6 @@ const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
   const [typedText, setTypedText] = useState('');
-  const [blurAmount, setBlurAmount] = useState(0);
   const fullText = '   From Start to Success, We Build the Arc.';
   const sectionRef = useRef(null);
   const { ref, inView } = useInView({
@@ -43,41 +42,39 @@ const HomePage = () => {
       const scrollPosition = window.scrollY;
       const overlays = document.querySelectorAll('.overlay');
       const backgrounds = document.querySelectorAll('.background');
-
+    
       const speed = 0.25; // Speed factor for the background parallax effect
       const overlaySpeed = 0.25; // Speed factor for the overlay
-
-      backgrounds.forEach((background) => {
-        const offset = scrollPosition * speed; 
-        background.style.backgroundPositionY  = `${offset}px`;
+    
+      backgrounds.forEach((background, index) => {
+        let offset = scrollPosition * speed;
+        if (index === 1) {
+          offset -= window.innerHeight; // Subtract the height of the screen for the second section
+        }
+        background.style.backgroundPositionY = `${offset}px`;
       });
-
-      overlays.forEach((overlay) => {
-        const overlayOffset = scrollPosition * overlaySpeed; 
-        overlay.style.backgroundPositionY  = `${overlayOffset}px`;
+    
+      overlays.forEach((overlay, index) => {
+        let overlayOffset = scrollPosition * overlaySpeed;
+        if (index === 1) {
+          overlayOffset -= window.innerHeight; // Subtract the height of the screen for the second section
+        }
+        overlay.style.backgroundPositionY = `${overlayOffset}px`;
       });
-
+    
       // Update the scrolled state based on the scroll position
       if (scrollPosition > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
-      // Update blur amount based on scroll position
-      const sectionTop = sectionRef.current.offsetTop;
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const maxBlur = 10; // Maximum blur amount
-      const blur = Math.max(maxBlur - (scrollPosition - sectionTop + sectionHeight) / 50, 0);
-      setBlurAmount(blur);
     };
-
-
+  
     setInitialPosition();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-    
   }, []);
 
   useEffect(() => {
@@ -163,13 +160,13 @@ const HomePage = () => {
         </div>
       </div>
 
-        <div
-          className='section relative h-screen bg-cover bg-bottom flex '
-          style={{ backgroundImage: `url(${image5})` }}
-          ref={sectionRef}
-        >
+      <div
+        className='section relative h-screen bg-fixed bg-top background flex flex-col justify-center items-center'
+        style={{ backgroundImage: `url(${image5})`, backgroundPosition: 'top' }}
+        ref={sectionRef}
+      >
           {/* Content for the second section */}
-          <div className='text-white relative w-full font-extrabold flex flex-col justify-center gap-20 flex-wrap items-center' style={{ filter: `blur(${blurAmount}px)` }}>
+          <div className='text-white relative w-full font-extrabold flex flex-col justify-center gap-20 flex-wrap items-center'>
             <div className='bg-gray-800 bg-opacity-20 m-5 p-5 lg:p-20 rounded-xl flex flex-col justify-center gap-20'>
               <h2
                 ref={ref}
