@@ -113,8 +113,8 @@ const HomePage = () => {
 
   return (
     <>
-        <Helmet>
-      <title>Arc Point Agency - Marketing & Business Solutions</title>
+      <Helmet>
+      <title>Arc Point Agency</title>
       <meta name="description" content="Enhancing brands with top-notch marketing and business solutions." />
       <meta property="og:title" content="Arc Point Agency - Elevate Your Brand" />
       <meta property="og:description" content="Enhancing brands with top-notch marketing and business solutions." />
@@ -136,7 +136,7 @@ const HomePage = () => {
             zIndex: 4,
           }}
         ></div>
-        <div className={`fixed w-full ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`} style={{ zIndex: 5 }}>
+        <div className={`fixed w-full ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit transform transition-all' : ''}`} style={{ zIndex: 5 }}>
           <div className=" m-2 flex justify-between">
             {/* <div className="flex pt-3 pl-3 pb-3 justify-center">
               <div className='triangleOut relative flex w-full h-full items-center'>
