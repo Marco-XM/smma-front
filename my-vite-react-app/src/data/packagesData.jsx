@@ -11,7 +11,7 @@ const packages = [
         buttonText: 'Choose Basic',
         color: 'bg-blue-800',
         buttonColor: 'bg-gradient-to-r from-blue-500 via-black to-green-500',
-        price: '15,000 EGP',
+        // price: '15,000 EGP',
     },
     {
         title: '2nd Package',
@@ -28,7 +28,7 @@ const packages = [
         buttonText: 'Choose Standard',
         color: 'bg-green-700',
         buttonColor: 'bg-gradient-to-r from-green-500 via-black to-purple-500',
-        price: '25,000 EGP',
+        // price: '25,000 EGP',
     },
     {
         title: '3rd Package',
@@ -47,7 +47,7 @@ const packages = [
         buttonText: 'Choose Premium',
         color: 'bg-purple-600',
         buttonColor: 'bg-gradient-to-r from-purple-500 via-black to-blue-500',
-        price: '30,000 EGP',
+        // price: '30,000 EGP',
     },
     {
         title: 'Custom Package',
