@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "generate-sitemap": "sitemap-generator https://arc-point-agency.vercel.app --output ./public/sitemap.xml",
     "preview": "vite preview"
   },
   "dependencies": {
