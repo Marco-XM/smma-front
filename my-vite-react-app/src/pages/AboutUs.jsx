@@ -73,7 +73,7 @@ if (loading) {
 
   return (
     <div className='flex flex-col min-h-screen lg:gap-20 bg-cover' style={{ backgroundImage: `url(${image})` }}>
-      <div className={`fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}> {/* Add z-index to ensure NavBar stays on top */}
+      <div className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}> {/* Add z-index to ensure NavBar stays on top */}
         <div className="m-2 flex justify-between">
           <Logo />
           <div className="text-white mr-5 self-center rounded-bl-full rounded-br-full  md:block">

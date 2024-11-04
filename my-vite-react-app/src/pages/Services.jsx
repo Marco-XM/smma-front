@@ -130,7 +130,7 @@ const Services = () => {
 
     return (
         <div className={`relative flex flex-col min-h-screen bg-cover bg-center bg-black`} style={{ backgroundImage: `url(${image})` }}>
-            <div className={` fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
+            <div className={` fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
                 <div className="m-2 flex justify-between items-center">
                     <Logo />
                     <div className="text-white mr-5 self-center rounded-bl-full rounded-br-full  md:block">
@@ -171,7 +171,7 @@ const Services = () => {
                                             className={`${descriptionClass} ${activeItem === `${serviceIndex}-${itemIndex}` ? 'max-h-40 z-50' : 'max-h-0 opacity-0'}`}
                                             style={{ position: 'relative', top: '100%', left: 0, right: 0 }}
                                         >
-                                            <p className='opacity-100'>{item.description}</p>
+                                            <p className='opacity-100 leading-6'>{item.description}</p>
                                         </div>
                                     </div>
                                 ))}

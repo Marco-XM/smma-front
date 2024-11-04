@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import packages from '../data/packagesData';
-import image from '../assets/Untitled-98.jpg';
+import image from '../assets/ContactUsFinal.jpg';
 import Loading from '../components/Loading';
 
 const ContactUs = () => {
@@ -105,8 +105,8 @@ const ContactUs = () => {
       } 
 
     return (
-        <div className='flex flex-col min-h-screen bg-cover bg-start bg-cyan-300' style={{ backgroundImage: `url(${image})` }}>
-            <div className={` fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
+        <div className='flex flex-col min-h-screen bg-cover bg-start' style={{ backgroundImage: `url(${image})` }}>
+            <div className={` fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
                 <div className="m-2 flex justify-between items-center">
                     <Logo />
                     <div className="text-white mr-5 self-center rounded-bl-full rounded-br-full  md:block">

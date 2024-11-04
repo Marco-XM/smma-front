@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import image from '../assets/northcost-3.jpg';
+import image from '../assets/home.JPG';
 import imagetop from '../assets/northcost-33.png';
 import image5 from '../assets/12.png';
 import NavBar from '../components/NavBar';
@@ -131,14 +131,14 @@ const HomePage = () => {
             zIndex: 1,
           }}
         >
-        <div
+        {/* <div
           className="overlay absolute inset-0 bg-cover bg-center bg-no-repeat h-full"
           style={{
             backgroundImage: `url(${imagetop})`,
             zIndex: 4,
           }}
-        ></div>
-        <div className={`fixed w-full ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit transform transition-all' : ''}`} style={{ zIndex: 5 }}>
+        ></div> */}
+        <div className={`fixed w-full transition-all duration-300 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`} style={{ zIndex: 5 }}>
           <div className=" m-2 flex justify-between">
             {/* <div className="flex pt-3 pl-3 pb-3 justify-center">
               <div className='triangleOut relative flex w-full h-full items-center'>
@@ -154,18 +154,26 @@ const HomePage = () => {
           </div>
         </div>
         <div className="self-center w-full" style={{ zIndex: 3 }}>
-          <div className="text-white flex flex-col justify-around transform -translate-y-28">
+          <div className="text-white flex flex-col justify-around transform">
           <h1 className="text-[5.5rem] sm:text-[9rem] md:[10rem] lg:text-[12rem] font-bold welcome-container self-center" style={{ zIndex: 3 }}>
               Welcome
             </h1>
-            <h3 className="translate-x-20 typing-effect text-xs lg:text-2xl font-thin self-center lg:translate-x-36" style={{ zIndex: 4 }}>
+            <h3 className="translate-x-12 typing-effect text-md lg:text-2xl font-thin self-center lg:translate-x-36" style={{ zIndex: 4 }}>
               {typedText}
             </h3>
           </div>
         </div>
+        <div className="absolute bottom-10 w-full flex justify-center">
+          <button onClick={() => document.getElementById('section2').scrollIntoView({ behavior: 'smooth' })} className="bg-white text-black rounded-full p-2 shadow-lg hover:p-3 hover:shadow-white-glow transition-all floating-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div
+        id="section2"
         className='section relative h-screen bg-fixed bg-top background flex flex-col justify-center items-center'
         style={{ backgroundImage: `url(${image5})`, backgroundPosition: 'top' }}
         ref={sectionRef}
@@ -182,7 +190,7 @@ const HomePage = () => {
               >
                 <span className='whitespace-nowrap text-[1.3rem] lg:text-3xl font-bold underline italic'>Your success story begins here.</span><br/> Let's build your brand, create impactful content, and drive results that matter.
               </h2>
-              <Link to="/packages" className='bg-black p-5 self-center rounded-xl bg-opacity-20 glow-on-hover transform transition-all'>Discover Our Packages</Link>
+              <Link to="/packages" className='bg-black p-5 self-center rounded-xl bg-opacity-20 hover:bg-white hover:text-black transform hover:shadow-white-glow transition-all'>Discover Our Packages</Link>
               </div>
           </div>
         </div>

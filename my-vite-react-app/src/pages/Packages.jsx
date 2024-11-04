@@ -56,7 +56,7 @@ const Packages = () => {
     return (
         <div>
             <div className='flex flex-col min-h-screen bg-cover bg-center bg-black' style={{ backgroundImage: `url(${image})` }}>
-                <div className={`fixed w-full z-50 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
+                <div className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-700 bg-opacity-15 backdrop-blur-xl h-fit' : ''}`}>
                     <div className="m-2 flex justify-between items-center">
                         <Logo />
                         <div className="text-white mr-5 rounded-bl-full rounded-br-full">

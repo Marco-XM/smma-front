@@ -448,3 +448,23 @@ html, body {
   color: #000000; /* Black text color */
   border-radius: 4px;
 }
+
+.hover\:shadow-white-glow:hover {
+  box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.8);
+}
+
+.floating-arrow {
+  animation: floating 2s infinite ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
