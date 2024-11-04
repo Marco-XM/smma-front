@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import image from '../assets/home.jpg';
+import image from '../assets/homee.jpg';
 import imagetop from '../assets/northcost-33.png';
 import image5 from '../assets/12.png';
 import NavBar from '../components/NavBar';
@@ -40,11 +40,9 @@ const HomePage = () => {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const overlays = document.querySelectorAll('.overlay');
       const backgrounds = document.querySelectorAll('.background');
     
       const speed = 0.25; // Speed factor for the background parallax effect
-      const overlaySpeed = 0.25; // Speed factor for the overlay
       const maxOffset = window.innerHeight; // Maximum offset value
     
       backgrounds.forEach((background, index) => {
@@ -58,14 +56,6 @@ const HomePage = () => {
         }
       });
     
-      overlays.forEach((overlay, index) => {
-        let overlayOffset = scrollPosition * overlaySpeed;
-        if (index === 1) {
-          overlayOffset -= window.innerHeight; // Subtract the height of the screen for the second section
-        }
-        overlayOffset = Math.min(overlayOffset, maxOffset); // Limit the offset to the maximum value
-        overlay.style.backgroundPositionY = `${overlayOffset}px`;
-      });
     
       // Update the scrolled state based on the scroll position
       if (scrollPosition > 50) {
