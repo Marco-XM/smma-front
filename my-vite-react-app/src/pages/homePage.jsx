@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import image from '../assets/home.JPG';
+import image from '../assets/home.jpg';
 import imagetop from '../assets/northcost-33.png';
 import image5 from '../assets/12.png';
 import NavBar from '../components/NavBar';
