@@ -180,7 +180,7 @@ const HomePage = () => {
               >
                 <span className='whitespace-nowrap text-[1.3rem] lg:text-3xl font-bold underline italic'>Your success story begins here.</span><br/> Let's build your brand, create impactful content, and drive results that matter.
               </h2>
-              <Link to="/packages" className='bg-black p-5 self-center rounded-xl bg-opacity-20 hover:bg-white hover:text-black transform hover:shadow-white-glow transition-all'>Discover Our Packages</Link>
+              <Link to="/packages" className='bg-black p-5 self-center rounded-xl bg-opacity-20 hover:bg-white text-nowrap flex justify-center items-center font-semibold hover:text-black transform hover:shadow-white-glow transition-all button1 type1'>Discover Our Packages</Link>
               </div>
           </div>
         </div>
