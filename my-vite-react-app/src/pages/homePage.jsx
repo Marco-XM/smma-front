@@ -148,7 +148,7 @@ const HomePage = () => {
           <h1 className="text-[5.5rem] sm:text-[9rem] md:[10rem] lg:text-[12rem] font-bold welcome-container self-center" style={{ zIndex: 3 }}>
               Welcome
             </h1>
-            <h3 className="translate-x-12 typing-effect text-md lg:text-2xl font-thin self-center lg:translate-x-36" style={{ zIndex: 4 }}>
+            <h3 className="translate-x-12 font-semibold typing-effect text-md lg:text-2xl self-center lg:translate-x-36" style={{ zIndex: 4 }}>
               {typedText}
             </h3>
           </div>
